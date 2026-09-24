@@ -110,7 +110,7 @@ class Client:
             yield
 
     def transport(self, method, path, payload=None, token=None):
-        allowed_get = re.fullmatch(r'/api/v4/((leads|contacts|companies|tasks)(/[0-9]+)?|leads/pipelines|leads/pipelines/[0-9]+/statuses)(\?page=[0-9]+&limit=[0-9]+)?', path)
+        allowed_get = re.fullmatch(r'/api/v4/((leads|contacts|companies|tasks)(/[0-9]+)?|leads/pipelines|leads/pipelines/[0-9]+/statuses|leads/custom_fields)(\?page=[0-9]+&limit=[0-9]+)?', path)
         allowed_write = (self.allow_writes and method in ('POST', 'PATCH') and
                          re.fullmatch(r'/api/v4/(leads|contacts|companies|tasks)', path))
         if allowed_write:
@@ -237,6 +237,17 @@ class Client:
                 break
             time.sleep(0.2)
         return items
+
+    def lead_fields(self):
+        """Read all lead field definitions without broadening write permissions."""
+        items = []
+        for page in range(1, 101):
+            data = self.get('/api/v4/leads/custom_fields?page=%s&limit=50' % page)
+            items.extend(data.get('_embedded', {}).get('custom_fields', []))
+            if not data.get('_links', {}).get('next'):
+                return items
+            time.sleep(0.2)
+        raise AmoError('Список полей неполный: превышен лимит страниц.')
 
 WRITE_FIELDS = {
     'leads': {'name', 'price', 'pipeline_id', 'status_id', 'responsible_user_id', 'custom_fields_values'},

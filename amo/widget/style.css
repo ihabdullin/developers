@@ -1,0 +1,15 @@
+.personal-referrer { color: inherit; font: inherit; padding: 12px 0; }
+.personal-referrer label { display: block; font-weight: 600; margin-bottom: 8px; }
+.personal-referrer input { box-sizing: border-box; width: 100%; padding: 9px; border: 1px solid #a8adb5; border-radius: 4px; background: transparent; color: inherit; }
+.personal-referrer input:disabled { opacity: .55; }
+.personal-referrer .personal-referrer-selected { margin: 0 0 10px; overflow-wrap: anywhere; }
+.personal-referrer a { color: #1685c8; text-decoration: underline; }
+.personal-referrer .personal-referrer-status { font-size: 12px; line-height: 1.5; margin: 8px 0; }
+.personal-referrer .personal-referrer-results { list-style: none; padding: 0; margin: 0; max-height: 280px; overflow-y: auto; }
+.personal-referrer button { cursor: pointer; color: inherit; background: transparent; border: 1px solid #a8adb5; border-radius: 4px; padding: 8px; }
+.personal-referrer button:disabled { cursor: default; opacity: .5; }
+.personal-referrer .personal-referrer-option { display: block; width: 100%; text-align: left; margin-bottom: 5px; }
+.personal-referrer .personal-referrer-option strong, .personal-referrer .personal-referrer-option span { display: block; overflow-wrap: anywhere; }
+.personal-referrer .personal-referrer-option span { font-size: 12px; margin-top: 4px; }
+.personal-referrer .personal-referrer-option:hover, .personal-referrer button:focus-visible { outline: 2px solid #1685c8; outline-offset: -2px; }
+.personal-referrer .personal-referrer-refresh, .personal-referrer .personal-referrer-more { margin-top: 8px; margin-right: 6px; }

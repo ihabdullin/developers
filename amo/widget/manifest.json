@@ -1,0 +1,20 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "1.0.0",
+    "interface_version": 2,
+    "init_once": false,
+    "locale": ["ru"],
+    "installation": true,
+    "support": {"link": "https://github.com/ihabdullin/developers/issues"}
+  },
+  "locations": ["lcard-1", "settings"],
+  "tour": {"is_tour": false, "tour_images": {"ru": []}, "tour_description": "widget.tour_description"},
+  "settings": {
+    "contact_id_field": {"name": "settings.contact_id_field", "type": "text", "required": false},
+    "channel_field": {"name": "settings.channel_field", "type": "text", "required": false},
+    "referral_enum": {"name": "settings.referral_enum", "type": "text", "required": false}
+  }
+}
